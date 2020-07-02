@@ -1,4 +1,3 @@
-
 import json
 from logging.config import dictConfig
 from typing import List, Dict
