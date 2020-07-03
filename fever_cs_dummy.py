@@ -12,17 +12,10 @@ from fever.evidence.retrieval_methods.top_docs import TopNDocsTopNSents
 from fever.reader import FEVERDocumentDatabase
 
 
-def predict_single(predictor, retrieval_method, instance):
-    evidence = retrieval_method.get_sentences_for_claim(instance["claim"])
-
-    test_instance = predictor._json_to_instance({"claim": instance["claim"], "predicted_sentences": evidence})
-    predicted = predictor.predict_instance(test_instance)
-
-    max_id = predicted["label_logits"].index(max(predicted["label_logits"]))
-
+def predict_single(retrieval_method, instance):
     return {
-        "predicted_label": predictor._model.vocab.get_token_from_index(max_id, namespace="labels"),
-        "predicted_evidence": evidence
+        "predicted_label": "SUPPORTS",  # predictor._model.vocab.get_token_from_index(max_id, namespace="labels"),
+        "predicted_evidence": retrieval_method.get_sentences_for_claim(instance["claim"])
     }
 
 
@@ -67,12 +60,11 @@ def make_api():
     archive = load_archive(config["model"],
                            cuda_device=config["cuda_device"],
                            overrides='{"dataset_reader":{"database":"' + config["database"] + '" }}')
-    predictor = Predictor.from_archive(archive, predictor_name="fever")
 
     def baseline_predict(instances):
         predictions = []
         for instance in instances:
-            predictions.append(predict_single(predictor, retrieval_method, instance))
+            predictions.append(predict_single(retrieval_method, instance))
         return predictions
 
     return fever_web_api(baseline_predict)
