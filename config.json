@@ -3,6 +3,6 @@
   "index": "/local/fever-common/data-cs/fever_cs-tfidf-ngram=2-hash=16777216-tokenizer=simple.npz",
   "n_docs": 5,
   "n_sents": 5,
-  "model": "http://localhost/filename.tar.gz",
+  "model": "http://bertik.net/fever-da.tar.gz",
   "cuda_device": -1
 }
