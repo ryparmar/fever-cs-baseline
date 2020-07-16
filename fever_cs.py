@@ -11,7 +11,6 @@ import logging
 from fever.evidence.retrieval_methods.top_docs import TopNDocsTopNSents
 from fever.reader import FEVERDocumentDatabase
 
-
 def predict_single(predictor, retrieval_method, instance):
     evidence = retrieval_method.get_sentences_for_claim(instance["claim"])
 

@@ -22,7 +22,7 @@ python -m allennlp.run predict \
     --output-file /tmp/labels.$(basename $1) \
     --predictor fever \
     --include-package fever.reader \
-    --cuda-device ${CUDA_DEVICE:-$default_cuda_device} \
+    --cuda-device ${CUDA_DEVICE:-$ centedefault_cuda_device} \
     --silent
 
 echo "prepare submission"
