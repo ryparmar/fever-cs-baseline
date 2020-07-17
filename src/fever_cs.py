@@ -48,7 +48,8 @@ def make_api():
     })
 
     logger.info("My sample FEVER application")
-    config = json.load(open(os.getenv("CONFIG_PATH", "config.json")))
+    config = json.load(open(os.getenv("CONFIG_PATH","configs/predict_docker.json")))
+
 
     # Create document retrieval model
     logger.info("Load FEVER Document database from {0}".format(config["database"]))

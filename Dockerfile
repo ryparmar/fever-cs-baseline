@@ -42,5 +42,6 @@ ENV FLASK_APP fever_cs:make_api
 
 #ENTRYPOINT ["/bin/bash","-c"]
 RUN git clone https://github.com/heruberuto/fever-cs-baseline
+ADD fever-cs-baseline fever-cs-baseline
 RUN fever-cs-baseline/download_prebuilt.sh /local/fever-common/data
 CMD ["waitress-serve", "--host=0.0.0.0", "--port=5000", "--call", "fever_cs:make_api"]
