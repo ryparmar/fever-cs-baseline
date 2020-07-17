@@ -1,8 +1,0 @@
-{
-  "database": "/local/fever-common/data/fever_cs.db",
-  "index": "/local/fever-common/data/fever-tfidf-ngram=2-hash=16777216-tokenizer=simple.npz",
-  "n_docs": 5,
-  "n_sents": 5,
-  "model": "http://bertik.net/fever-da.tar.gz",
-  "cuda_device": -1
-}
