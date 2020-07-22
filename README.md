@@ -8,6 +8,6 @@
 
 4. Run *serve.sh*;
 
-5. Running baseline can be done via command line software by using *curl* software
+5. Baseline can tested by sending some input to the model: (e.g. using command line software *curl* as in this case)
 
 curl -d '{"instances": [{"id": 0, "claim": "Rys ostrovid je kočkovitá šelma."}]}' -H "Content-Type: application/json" -X POST http://localhost:5000/predict
